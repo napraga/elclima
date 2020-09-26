@@ -1,0 +1,259 @@
+@import '../variables'
+@import '../mixins'
+@import '../custom_media'
+
+.container-ppal
+    background-color: $bg-color2
+    @include border-radius(40px)
+
+.jumbotron
+    @include border-radius(40px)
+    height: 270px
+    background-size: cover
+    h3
+        color: $azul2
+
+.banner_clima
+    position: absolute
+    left: 0
+    top: 70px
+
+.inverted-border-radius-top
+  position: absolute
+  background-color: $azul1
+  border-radius: 0 25px 25px 10px
+  z-index: 2
+  top: 0
+  width: 120px
+  min-height: 80px
+  padding: 10px 20px
+  text-align: center
+  color: white
+  img
+      width: 100%
+      position: relative
+      margin-top: -20px
+  div
+      margin-top: -20px
+      position: relative
+      font-size: 12px
+
+.inverted-border-radius-top::before 
+  content: ""
+  position: absolute
+  background-color: transparent
+  top: -50px
+  height: 50px
+  width: 24px
+  left: 0
+  border-top-right-radius: 25px
+  box-shadow: 0 -25px 0 0 $azul1
+  @include rotate(-180deg)
+
+.inverted-border-radius-bottom
+  position: absolute
+  z-index: 1
+  background-color: $azul2
+  border-radius: 25px 25px 25px 0
+  top: 45px
+  width: 120px
+  padding: 50px 10px 20px 10px
+  text-align: center
+  color: white
+  font-size: 18px
+
+
+.inverted-border-radius-bottom::before 
+  content: ""
+  position: absolute
+  background-color: transparent
+  bottom: -50px
+  height: 50px
+  width: 24px
+  left: 0
+  border-top-left-radius: 25px
+  box-shadow: 0 -25px 0 0 $azul2
+
+.city_container
+    @include border-radius(10px)
+    background-color: white
+
+.city
+    @include border-radius(10px)
+    @include box-shadow(0, 15px, 28px, $gris1)
+    margin: 0 0 20px 0
+    ul
+        list-style: none
+        margin: 0
+        padding: 0
+        width: 100%
+        display: inline-block
+        li
+            float: left
+            width: 33%
+            border-right: 1px solid $gris2
+            text-align: center
+            font-size: 12px
+            color: $gris1
+            margin-top: 15px
+            h4
+                margin-top: 10px
+                font-size: 22px
+                font-weight: bold
+                color: $gris3
+                sup
+                    color: $azul3
+                    font-size: 12px
+            h5
+                color: $gris3
+                padding-left: 5px
+                font-size: 16px
+                margin-top: 10px
+                text-align: left
+                span
+                    font-size: 13px
+        li:last-child
+                border-right: 0px
+        li:first-child
+                margin-top: 0
+        .liImg
+            width: 33%
+            padding: 0
+            border-right: none
+            background-color: $azul4
+            @include border-radius(10px)
+            img
+                position: relative
+                margin: -10px
+        .liHumidity
+            width: 40%
+            margin-top: 0
+        .liDirection
+            width: 20%
+            margin-top: 0
+        .liSpeed
+            margin-top: 0
+
+.addlocation
+    border: 2px dashed $gris2
+    text-align: center
+    height: 200px
+    button
+        margin: 40px 0 50px 0
+        display: inline-block
+        align: center
+        background-color: $azul5
+        color: $azul3
+        @include border-radius(20px)
+        width: 70%
+    img
+        align: center
+        display: inline-block
+        margin: 10px 20px 0 20px
+
+.forecast_container
+    ul
+        list-style: none
+        margin: 0
+        padding: 0
+        width: 100%
+        display: inline-block
+        li
+            @include border-radius(10px)
+            @include box-shadow(0, 15px, 28px, $gris1)
+            display: inline-block
+            width: 100%
+            font-size: 12px
+            color: $gris1
+            border: 1px dashed $gris2
+            padding: 15px
+            margin: 0 0 20px 0
+            font-size: 14px
+            height: 70px
+            img
+                margin: -10px 5px 0 -10px
+                width: 30%
+                float: left
+            .cnt_temps
+                sup
+                    font-size: 10px
+                background-color: $azul4
+                color: black
+                float: right
+                width: 30%
+                @include border-radius(10px)
+                padding: 25px 0 0 0
+                margin: -15px -20px
+                height: 70px
+                text-align: center
+            .cnt_dateNtype
+                color: $gris3
+                float: left
+                width: 40%
+                span
+                    color: $gris1
+                    display: inline-block
+                    width: 100%
+        li:first-child
+            .cnt_temps
+                background-color: $azul2
+                color: white
+.topreviews
+    span
+        font-size: 12px
+        color: $gris1
+    ul
+        list-style: none
+        margin: 0
+        padding: 0
+        display: inline-block
+        li
+            @include border-radius(4px)
+            float: left
+            height: 26px
+            width: 24px
+            img
+                @include border-radius(4px)
+                width: 100%
+        .lastli
+            background-color: $azul2
+            color: white
+            font-size: 12px
+            padding: 5px 0
+            text-align: center
+.place1
+    @include border-radius(20px)
+    width: 40%
+    margin: 0 5%
+    height: 265px
+    float: left
+    background-size: cover
+.place2
+    @include border-radius(20px)
+    width: 40%
+    margin: 0 5% 20px 5%
+    height: 90px
+    float: left
+    background-size: cover
+.place3
+    @include border-radius(20px)
+    width: 40%
+    margin: 0 5%
+    height: 155px
+    float: left
+    background-size: cover
+.title_places
+    color: white
+    font-size: 12px
+    margin: 10px 0
+    float: left
+.btn_place
+    background-color: $azul2
+    @include border-radius(50px)
+    float: right
+    height: 140px
+    width: 5px
+    color: white
+    text-align: center
+    padding: 20px 20px 20px 10px
+    margin: 10px 0

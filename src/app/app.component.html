@@ -1,0 +1,193 @@
+<!-- logo top -->
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-12 text-right">
+      <img src="/assets/images/logotop.png">
+    </div>
+  </div>
+</div>
+<!-- /logo top -->
+
+<div class="container container-ppal">
+  <!-- row banner jumbotron -->
+  <div class="row py-4">
+    <div class="col-sm-12">
+      <div class="jumbotron mx-5" [style]="'background-image:url(https://source.unsplash.com/1600x900/?'+currentCity+',city)'">
+        <h3 class="ml-5">
+          <svg width="32px" height="32px" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+          {{currentCity}}</h3>
+      </div>
+      <div class="banner_clima">
+        <div class="cnt_imagen inverted-border-radius-top">
+          <img [src]="getIcon(false)" />
+          <div *ngIf="current.weather">{{current.weather[0].main}}</div>
+        </div>
+        <div class="cnt_txt inverted-border-radius-bottom">
+          <div *ngIf="current.weather">{{current.main.temp - current.main.temp % 1}} ℃</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row banner jumbotron -->
+  
+  <!-- row content -->
+  <div class="row py-4">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-5">
+      <!-- row content responsive -->
+      <div class="row">
+        <div class="col-sm-11 col-md-5 col-lg-3">
+          <div class="text-center">
+            <h5>
+              <strong>3 days</strong> Forecast
+            </h5>
+          </div>
+          <div class="forecast_container">
+            <ul>
+              <li *ngFor="let item of currentForecast">
+                <img [src]="getIcon(item)" />
+                <div class="cnt_dateNtype">
+                  <strong>{{nameOfDay(item.dt_txt)}}</strong>
+                  <span>
+                    {{item.weather[0].main}}
+                  </span>
+                </div>
+                <div class="cnt_temps">
+                  {{item.main.feels_like - item.main.feels_like % 1}}<sup>o</sup> / {{item.main.temp - item.main.temp % 1}}<sup>o</sup>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-11 col-md-6 col-lg-5">
+          <div class="row mb-5">
+            <!-- muestra solo en responsive -->
+            <div class="col-sm-12 col-md-12 d-md-block d-lg-none">
+              <div class="topreviews pl-4">
+                <span>+ Top reviews</span>
+                <ul>
+                  <li *ngFor="let item of users">
+                    <img [src]="item.picture.thumbnail">
+                  </li>
+                  <li class="lastli">14+</li>
+                </ul>
+              </div>
+            </div>
+            <!-- /muestra solo en responsive -->
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <h5 class="pl-4">
+                <strong>Place to</strong> Visit
+              </h5>
+            </div>
+            <!-- muestra solo en desktop -->
+            <div class="col-lg-6 d-none d-lg-block d-xl-none">
+              <div class="topreviews">
+                <span>+ Top reviews</span>
+                <ul>
+                  <li *ngFor="let item of users">
+                    <img [src]="item.picture.thumbnail">
+                  </li>
+                  <li class="lastli">14+</li>
+                </ul>
+              </div>
+            </div>
+            <!-- /muestra solo en desktop -->
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              
+              <div class="place1" [style]="'background-image:url(https://source.unsplash.com/480x480/?travel)'">
+                <h3 class="title_places">
+                  <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                  Place
+                </h3>
+              </div>
+              <div class="place2" [style]="'background-image:url(https://source.unsplash.com/480x480/?business)'">
+                <h3 class="title_places">
+                  <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                  Place
+                </h3>
+              </div>
+              <div class="place3" [style]="'background-image:url(https://source.unsplash.com/480x480/?cities)'">
+                <h3 class="title_places">
+                  <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                  Place
+                </h3>
+                <button class="btn btn_place">+</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- cities blocks -->
+        <div class="col-sm-11 col-md-10 col-lg-3">
+          <div class="city_container">
+            <div class="city" *ngFor="let item of cities | keyvalue">
+              <ul>
+                <li class="liImg">
+                  <img [src]="getIcon(item.value)" />
+                </li>
+                <li>
+                  <h4>{{item.value.main.temp - item.value.main.temp % 1}}<sup>℃</sup></h4>
+                </li>
+                <li>
+                  <h5>
+                    {{item.value.name}}
+                    <br />
+                    <span>{{item.value.sys.country}}</span>
+                  </h5>
+                </li>
+              </ul>
+              <ul>
+                <li class="liHumidity">
+                  Humidity {{item.value.main.humidity}}%
+                </li>
+                <li class="liDirection">
+                  {{degToCompass(item.value.wind.deg)}}
+                </li>
+                <li class="liSpeed">
+                  {{item.value.wind.speed}} km/h 
+                </li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="city addlocation">
+            <button class="btn" (click)="open(content)">Add locations</button>
+            <img src="/assets/images/addlocation.png">
+          </div>
+        </div>
+        <!-- /cities blocks -->
+      </div>
+      <!-- /row content responsive -->
+    </div>
+  </div>
+  <!-- /row content -->
+</div>
+<!-- modal add location -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Location</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="form-group">
+        <div class="input-group">
+          <input id="newlocation" (keyup)="onKey($event)" class="form-control" placeholder="Type a new location" name="city">
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Add</button>
+  </div>
+</ng-template>
+<!-- /modal add location -->
+<router-outlet></router-outlet>
